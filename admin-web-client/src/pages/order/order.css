@@ -1,0 +1,51 @@
+.order-item {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr; /* กำหนดการแสดงผลเป็นกริด */
+    align-items: start; /* จัดเรียงให้เริ่มจากด้านบน */
+    gap: 20px; /* ระยะห่างระหว่างไอเทม */
+    border: 1px solid tomato; /* ขอบสีแดง */
+    padding: 20px; /* Padding รอบ ๆ */
+    margin: 30px 0; /* Margin ด้านบนและล่าง */
+    font-size: 14px; /* ขนาดตัวอักษร */
+    color: #505050; /* สีตัวอักษร */
+}
+
+.order-item-food,
+.order-item-name {
+    font-weight: 600; /* ทำให้ตัวอักษรหนา */
+}
+
+.order-item-name {
+    margin-top: 30px; /* Margin ด้านบน */
+    margin-bottom: 5px; /* Margin ด้านล่าง */
+}
+
+.order-item-address {
+    margin-bottom: 10px; /* Margin ด้านล่าง */
+}
+
+.order-item select {
+    background-color: #ffe8e4; /* สีพื้นหลังของ dropdown */
+    border: 1px solid tomato; /* ขอบสีแดง */
+    width: max(10vw, 120px); /* กว้างตามขนาดหน้าจอหรือ 120px */
+    padding: 10px; /* Padding รอบ ๆ */
+    outline: none; /* ไม่ให้มีเส้นขอบเมื่อเลือก */
+}
+
+/* Media query สำหรับการปรับแต่งในขนาดหน้าจอเล็ก */
+@media (max-width: 1000px) {
+    .order-item {
+        font-size: 20px; /* ขนาดตัวอักษรที่ใหญ่ขึ้น */
+        grid-template-columns: 0.5fr 2fr 1fr; /* ปรับกริดให้มีคอลัมน์น้อยลง */
+        padding: 15px 8px; /* ปรับ padding */
+    }
+
+    .order-item select {
+        padding: 5px; /* Padding ใน dropdown */
+        font-size: 12px; /* ขนาดตัวอักษรใน dropdown */
+    }
+
+    .order-item img {
+        width: 40px; /* ปรับขนาดของรูปภาพ */
+    }
+}

@@ -1,0 +1,98 @@
+.container {
+    display: flex;
+    justify-content: space-between; /* กระจาย Card ให้ห่างกันเท่า ๆ กัน */
+    flex-wrap: wrap; /* ให้ Card ลงมาเป็นบรรทัดใหม่เมื่อพื้นที่ไม่พอ */
+    gap: 20px; /* ระยะห่างระหว่าง Card */
+    padding: 20px;
+}
+
+.food-item {
+    flex: 1 1 calc(25% - 20px); /* กำหนดให้แต่ละ Card กินพื้นที่ 25% ของหน้าจอ โดยหักระยะห่างออก */
+    max-width: 300px; /* ขีดจำกัดความกว้างของ Card */
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px #00000015;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 420px; /* ความสูงคงที่เพื่อให้ Card เท่ากัน */
+    overflow: hidden;
+    background-color: white;
+}
+
+.food-item-image {
+    width: 80%; /* ปรับขนาดตามต้องการ */
+    height: auto; /* ให้รักษาอัตราส่วนของรูป */
+    margin: 0 auto; /* จัดกึ่งกลางในแนวนอน */
+    display: block; /* ให้ภาพอยู่ตรงกลาง */
+    max-height: 200px; /* จำกัดความสูงสูงสุด */
+    object-fit: contain; /* ปรับให้ภาพอยู่ในขอบเขตโดยไม่ถูกบีบ */
+}
+
+.food-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #EDF2F5; /* เพิ่มสีพื้นหลังที่นี่ */
+    border-radius: 0 0 15px 15px; /* ให้มุมล่างขอบการ์ดกลม */
+}
+
+.food-item-name-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.food-item-name-rating p {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.food-item-name-rating img {
+    width: 70px;
+}
+
+.food-item-description {
+    color: #676767;
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+.food-item-price {
+    color: tomato;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: auto;
+}
+
+.food-item-img-container {
+    position: relative;
+}
+
+.food-item-img-container .add {
+    width: 35px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.food-item-counter {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px;
+    border-radius: 50px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.food-item-counter img {
+    width: 30px;
+}
