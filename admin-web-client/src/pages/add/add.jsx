@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Add = ({ url }) => {
-  const [image, setImage] = useState(null); // เปลี่ยนจาก false เป็น null เพื่อให้ชัดเจน
+  const [image, setImage] = useState(null);
   const [data, setData] = useState({
     name: "",
     description: "",
