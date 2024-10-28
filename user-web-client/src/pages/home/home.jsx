@@ -7,31 +7,28 @@ import AppDownload from "../../components/appdownload/appdownload";
 
 const Home = () => {
   const [category, setCategory] = useState("All");
-  const [loading, setLoading] = useState(true); // สถานะการโหลด
-  const [error, setError] = useState(null); // สถานะข้อผิดพลาด
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // ฟังก์ชันที่ใช้ในการโหลดข้อมูล
     const loadData = async () => {
       try {
-        // สมมติว่าคุณมีฟังก์ชันในการโหลดข้อมูลที่นี่
-        // await fetchData(category);
-        setLoading(false); // หยุดการโหลดเมื่อโหลดข้อมูลเสร็จ
+        setLoading(false);
       } catch (err) {
-        setError("Failed to load data"); // ตั้งค่าข้อผิดพลาด
-        setLoading(false); // หยุดการโหลดเมื่อเกิดข้อผิดพลาด
+        setError("Failed to load data");
+        setLoading(false);
       }
     };
 
     loadData();
-  }, [category]); // โหลดข้อมูลใหม่เมื่อหมวดหมู่เปลี่ยน
+  }, [category]);
 
   if (loading) {
-    return <div>Loading...</div>; // แสดงข้อความขณะโหลด
+    return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div>{error}</div>; // แสดงข้อความข้อผิดพลาด
+    return <div>{error}</div>;
   }
 
   return (

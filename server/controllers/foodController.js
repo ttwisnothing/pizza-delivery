@@ -1,11 +1,12 @@
 import foodModel from "../models/foodModel.js";
 import fs from "fs";
 
-// Function to add a food item
+// Add food function
 const addFood = async (req, res) => {
-  // ตรวจสอบว่ามีการอัปโหลดไฟล์หรือไม่
   if (!req.file) {
-    return res.status(400).json({ success: false, message: "Image is required" });
+    return res
+      .status(400)
+      .json({ success: false, message: "Image is required" });
   }
 
   const imageFilename = req.file.filename;
@@ -20,7 +21,6 @@ const addFood = async (req, res) => {
   });
 
   try {
-    // บันทึก food ลงในฐานข้อมูล
     await food.save();
     res.json({ success: true, message: "Food added successfully" });
   } catch (error) {
@@ -29,7 +29,7 @@ const addFood = async (req, res) => {
   }
 };
 
-// Function to list all food items
+// List food function
 const listFood = async (req, res) => {
   try {
     // ค้นหาทุก food จากฐานข้อมูล
@@ -37,16 +37,20 @@ const listFood = async (req, res) => {
     res.json({ success: true, data: foods });
   } catch (error) {
     console.error("Error fetching food list:", error);
-    res.status(500).json({ success: false, message: "Error fetching food list" });
+    res
+      .status(500)
+      .json({ success: false, message: "Error fetching food list" });
   }
 };
 
-// Function to remove a food item
+// Remove food function
 const removeFood = async (req, res) => {
   try {
     const food = await foodModel.findById(req.body.id);
     if (!food) {
-      return res.status(404).json({ success: false, message: "Food not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Food not found" });
     }
 
     // ลบไฟล์ภาพจากเซิร์ฟเวอร์

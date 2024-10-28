@@ -1,23 +1,23 @@
 .food-display {
     margin-top: 30px;
-    padding: 20px; /* เพิ่ม padding รอบ ๆ */
-    background-color: #f9f9f9; /* เพิ่มพื้นหลังให้กับส่วนนี้ */
-    border-radius: 10px; /* ทำมุมโค้งเพื่อความนุ่มนวล */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กับกล่อง */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .food-display h2 {
     font-size: max(2vw, 24px);
     font-weight: 600;
-    color: #262626; /* ทำให้หัวข้อมีสีที่เด่น */
-    text-align: center; /* จัดกลางข้อความ */
-    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+    color: #262626;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .food-display-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     margin-top: 30px;
-    gap: 30px; /* ระยะห่างระหว่างรายการ */
-    row-gap: 50px; /* ระยะห่างระหว่างแถว */
+    gap: 30px;
+    row-gap: 50px;
 }

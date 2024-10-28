@@ -9,19 +9,16 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
-  // กำหนด URL สำหรับ API
   const url = "http://localhost:4000";
 
   return (
     <div>
-      {/* แสดง ToastContainer สำหรับการแจ้งเตือน */}
       <ToastContainer />
       <Navbar />
       <hr />
       <div className="app-content">
         <Sidebar />
         <Routes>
-          {/* กำหนดเส้นทางสำหรับแต่ละหน้า */}
           <Route path="/add" element={<Add url={url} />} />
           <Route path="/list" element={<List url={url} />} />
           <Route path="/orders" element={<Orders url={url} />} />

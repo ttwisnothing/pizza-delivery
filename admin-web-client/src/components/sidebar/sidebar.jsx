@@ -3,7 +3,6 @@ import "./sidebar.css";
 import { assets } from "../../assets/assets";
 import { NavLink } from "react-router-dom";
 
-// สร้างคอมโพเนนต์ Sidebar
 const Sidebar = () => {
   const renderOption = (to, icon, label) => (
     <NavLink to={to} className="sidebar-option">
@@ -23,5 +22,4 @@ const Sidebar = () => {
   );
 };
 
-// ส่งออก Sidebar เพื่อให้ใช้ในส่วนอื่นได้
 export default Sidebar;

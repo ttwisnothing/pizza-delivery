@@ -1,19 +1,19 @@
 import userModel from "../models/userModel.js";
 
-// Function to add an item to the user's cart
+// Add to cart function
 const addToCart = async (req, res) => {
   try {
-    // ค้นหาข้อมูลผู้ใช้จาก userId
     const userData = await userModel.findById(req.body.userId);
-    
-    // ตรวจสอบว่าผู้ใช้มีข้อมูลใน cartData หรือไม่
+
     let cartData = userData.cartData || {};
-    
-    // เพิ่มจำนวนสินค้าหรือสร้างรายการใหม่
+
     cartData[req.body.itemId] = (cartData[req.body.itemId] || 0) + 1;
-    
-    // อัปเดตข้อมูล cartData ในฐานข้อมูล
-    await userModel.findByIdAndUpdate(req.body.userId, { cartData }, { new: true });
+
+    await userModel.findByIdAndUpdate(
+      req.body.userId,
+      { cartData },
+      { new: true }
+    );
 
     res.json({ success: true, message: "Added to cart" });
   } catch (error) {
@@ -22,25 +22,25 @@ const addToCart = async (req, res) => {
   }
 };
 
-// Function to remove an item from the user's cart
+// Remove from cart function
 const removeFromCart = async (req, res) => {
   try {
-    // ค้นหาข้อมูลผู้ใช้จาก userId
     const userData = await userModel.findById(req.body.userId);
-    
-    // ตรวจสอบว่าผู้ใช้มีข้อมูลใน cartData หรือไม่
+
     let cartData = userData.cartData || {};
-    
-    // ตรวจสอบและลดจำนวนสินค้าหรือกำจัดรายการออก
+
     if (cartData[req.body.itemId] > 0) {
       cartData[req.body.itemId] -= 1;
       if (cartData[req.body.itemId] === 0) {
         delete cartData[req.body.itemId];
       }
     }
-    
-    // อัปเดตข้อมูล cartData ในฐานข้อมูล
-    await userModel.findByIdAndUpdate(req.body.userId, { cartData }, { new: true });
+
+    await userModel.findByIdAndUpdate(
+      req.body.userId,
+      { cartData },
+      { new: true }
+    );
 
     res.json({ success: true, message: "Removed from cart" });
   } catch (error) {
@@ -49,13 +49,11 @@ const removeFromCart = async (req, res) => {
   }
 };
 
-// Function to fetch the user's cart data
+// Get cart data function
 const getCart = async (req, res) => {
   try {
-    // ค้นหาข้อมูลผู้ใช้จาก userId
     const userData = await userModel.findById(req.body.userId);
-    
-    // ตรวจสอบว่าผู้ใช้มีข้อมูลใน cartData หรือไม่
+
     const cartData = userData.cartData || {};
 
     res.json({ success: true, cartData });

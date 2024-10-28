@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-// สร้าง schema สำหรับคำสั่งซื้อ
 const orderSchema = new mongoose.Schema({
   userId: { type: String, required: true }, // ID ของผู้ใช้
   items: { type: Array, required: true }, // รายการสินค้าที่สั่งซื้อ
@@ -11,6 +10,7 @@ const orderSchema = new mongoose.Schema({
   payment: { type: Boolean, default: false }, // สถานะการชำระเงิน
 });
 
-const orderModel = mongoose.models.order || mongoose.model("order-re", orderSchema);
+const orderModel =
+  mongoose.models.order || mongoose.model("order-re", orderSchema);
 
 export default orderModel;

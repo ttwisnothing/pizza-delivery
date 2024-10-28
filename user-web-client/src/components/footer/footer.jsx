@@ -15,13 +15,25 @@ const Footer = () => {
             scrambled it to make a type specimen book.
           </p>
           <div className="footer-social-icon">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={assets.facebook_icon} alt="Facebook" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={assets.twitter_icon} alt="Twitter" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={assets.linkedin_icon} alt="LinkedIn" />
             </a>
           </div>

@@ -7,11 +7,11 @@ import { assets } from "../../assets/assets";
 const MyOrder = () => {
   const { url, token } = useContext(StoreContext);
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true); // สถานะการโหลด
-  const [error, setError] = useState(null); // สถานะข้อผิดพลาด
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const fetchOrder = async () => {
-    setLoading(true); // เริ่มต้นการโหลด
+    setLoading(true);
     try {
       const response = await axios.post(
         url + "/api/order/userorders",
@@ -20,9 +20,9 @@ const MyOrder = () => {
       );
       setData(response.data.data);
     } catch (err) {
-      setError("Failed to fetch orders. Please try again later."); // ตั้งค่าข้อผิดพลาด
+      setError("Failed to fetch orders. Please try again later.");
     } finally {
-      setLoading(false); // หยุดการโหลด
+      setLoading(false);
     }
   };
 
@@ -33,11 +33,11 @@ const MyOrder = () => {
   }, [token]);
 
   if (loading) {
-    return <div>Loading...</div>; // แสดงข้อความขณะโหลด
+    return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div>{error}</div>; // แสดงข้อความข้อผิดพลาด
+    return <div>{error}</div>;
   }
 
   return (

@@ -1,31 +1,31 @@
 .container {
     display: flex;
-    justify-content: space-between; /* กระจาย Card ให้ห่างกันเท่า ๆ กัน */
-    flex-wrap: wrap; /* ให้ Card ลงมาเป็นบรรทัดใหม่เมื่อพื้นที่ไม่พอ */
-    gap: 20px; /* ระยะห่างระหว่าง Card */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
     padding: 20px;
 }
 
 .food-item {
-    flex: 1 1 calc(25% - 20px); /* กำหนดให้แต่ละ Card กินพื้นที่ 25% ของหน้าจอ โดยหักระยะห่างออก */
-    max-width: 300px; /* ขีดจำกัดความกว้างของ Card */
+    flex: 1 1 calc(25% - 20px);
+    max-width: 300px;
     border-radius: 15px;
     box-shadow: 0px 0px 10px #00000015;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 420px; /* ความสูงคงที่เพื่อให้ Card เท่ากัน */
+    min-height: 420px;
     overflow: hidden;
     background-color: white;
 }
 
 .food-item-image {
-    width: 80%; /* ปรับขนาดตามต้องการ */
-    height: auto; /* ให้รักษาอัตราส่วนของรูป */
-    margin: 0 auto; /* จัดกึ่งกลางในแนวนอน */
-    display: block; /* ให้ภาพอยู่ตรงกลาง */
-    max-height: 200px; /* จำกัดความสูงสูงสุด */
-    object-fit: contain; /* ปรับให้ภาพอยู่ในขอบเขตโดยไม่ถูกบีบ */
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    max-height: 200px;
+    object-fit: contain;
 }
 
 .food-item-info {
@@ -34,8 +34,8 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 15px;
-    background-color: #EDF2F5; /* เพิ่มสีพื้นหลังที่นี่ */
-    border-radius: 0 0 15px 15px; /* ให้มุมล่างขอบการ์ดกลม */
+    background-color: #EDF2F5;
+    border-radius: 0 0 15px 15px;
 }
 
 .food-item-name-rating {

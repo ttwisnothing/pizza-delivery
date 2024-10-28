@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 const List = ({ url }) => {
   const [list, setList] = useState([]);
 
-  // ใช้ useCallback เพื่อป้องกันการสร้างฟังก์ชันใหม่ซ้ำๆ ในทุกการ render
   const fetchList = useCallback(async () => {
     try {
       const response = await axios.get(`${url}/api/food/list`);
@@ -21,13 +20,12 @@ const List = ({ url }) => {
     }
   }, [url]);
 
-  // ฟังก์ชันลบอาหาร พร้อมเรียก fetchList อีกครั้งหลังลบ
   const removeFood = async (foodId) => {
     try {
       const response = await axios.post(`${url}/api/food/remove`, { id: foodId });
       if (response.data.success) {
         toast.success(response.data.message);
-        fetchList(); // เรียกฟังก์ชันเพื่ออัปเดตข้อมูล
+        fetchList();
       } else {
         toast.error("Failed to remove the item.");
       }
@@ -37,7 +35,6 @@ const List = ({ url }) => {
     }
   };
 
-  // ใช้ useEffect เพื่อดึงข้อมูลครั้งแรกเมื่อ component ถูก mount
   useEffect(() => {
     fetchList();
   }, [fetchList]);
@@ -46,7 +43,6 @@ const List = ({ url }) => {
     <div className="list-container flex-col">
       <h2>All Food List</h2>
       <div className="list-table">
-        {/* หัวตาราง */}
         <div className="list-header">
           <b>Image</b>
           <b>Name</b>
@@ -55,7 +51,6 @@ const List = ({ url }) => {
           <b>Action</b>
         </div>
 
-        {/* แสดงรายการอาหาร */}
         {list.map((item) => (
           <div key={item._id} className="list-row">
             <img src={`${url}/images/${item.image}`} alt={item.name} />

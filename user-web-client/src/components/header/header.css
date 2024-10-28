@@ -4,9 +4,9 @@
     background: url('/header_img.png') no-repeat;
     background-size: contain;
     position: relative;
-    display: flex; /* ใช้ flex เพื่อให้เนื้อหาจัดกลาง */
-    justify-content: center; /* จัดกลางเนื้อหา */
-    align-items: center; /* จัดกลางในแนวตั้ง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header-contents {
@@ -40,13 +40,13 @@
     background-color: white;
     font-size: max(1vw, 13px);
     border-radius: 15px;
-    cursor: pointer; /* แสดงว่าปุ่มสามารถคลิกได้ */
-    transition: background-color 0.3s, color 0.3s; /* เพิ่ม transition เมื่อ hover */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .header-contents button:hover {
-    background-color: tomato; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
-    color: white; /* เปลี่ยนสีตัวอักษรเมื่อ hover */
+    background-color: tomato;
+    color: white;
 }
 
 @media (max-width: 1050px) {
@@ -61,10 +61,10 @@
     }
 
     .header-contents p {
-        display: none; /* ซ่อนข้อความในขนาดเล็ก */
+        display: none;
     }
 
     .header-contents button {
-        padding: 2vw 4vw; /* ปรับขนาด padding ของปุ่มในขนาดเล็ก */
+        padding: 2vw 4vw;
     }
 }

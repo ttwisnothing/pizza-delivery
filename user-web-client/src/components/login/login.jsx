@@ -9,7 +9,7 @@ const Login = ({ setShowLogin }) => {
   const [currState, setCurrState] = useState("Login");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -26,7 +26,8 @@ const Login = ({ setShowLogin }) => {
     setLoading(true);
     setError("");
 
-    const endpoint = currState === "Login" ? "/api/user/login" : "/api/user/register";
+    const endpoint =
+      currState === "Login" ? "/api/user/login" : "/api/user/register";
 
     try {
       const response = await axios.post(`${url}${endpoint}`, data);
@@ -88,7 +89,11 @@ const Login = ({ setShowLogin }) => {
         {error && <p className="error-message">{error}</p>}
 
         <button type="submit" disabled={loading}>
-          {loading ? "Processing..." : currState === "Sign Up" ? "Create Account" : "Login"}
+          {loading
+            ? "Processing..."
+            : currState === "Sign Up"
+            ? "Create Account"
+            : "Login"}
         </button>
 
         <div className="login-popup-condition">

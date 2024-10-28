@@ -31,11 +31,11 @@
 
 .explore-menu-list-item {
     cursor: pointer;
-    transition: transform 0.2s; /* เพิ่ม effect เมื่อ hover */
+    transition: transform 0.2s;
 }
 
 .explore-menu-list-item:hover {
-    transform: scale(1.05); /* ขยายเมื่อ hover */
+    transform: scale(1.05);
 }
 
 .explore-menu-list-item img {
@@ -71,7 +71,7 @@
     }
 
     .explore-menu-list {
-        flex-wrap: wrap; /* เปลี่ยนให้รองรับหลายแถวเมื่อหน้าจอเล็ก */
-        gap: 15px; /* ปรับ gap สำหรับอุปกรณ์เล็ก */
+        flex-wrap: wrap;
+        gap: 15px;
     }
 }

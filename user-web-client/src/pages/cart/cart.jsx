@@ -15,7 +15,7 @@ const Cart = () => {
   };
 
   const totalAmount = getTotalCartAmount();
-  
+
   return (
     <div className="cart">
       <div className="cart-items">
@@ -50,9 +50,7 @@ const Cart = () => {
           }
           return null; // คืนค่า null หากไม่มีรายการ
         })}
-        {totalAmount === 0 && (
-          <p>Your cart is empty. Start adding items!</p>
-        )}
+        {totalAmount === 0 && <p>Your cart is empty. Start adding items!</p>}
       </div>
       <div className="cart-bottom">
         <div className="cart-total">

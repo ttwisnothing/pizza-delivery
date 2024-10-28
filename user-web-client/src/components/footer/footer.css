@@ -22,7 +22,7 @@
 .footer-content-center {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* แก้ไขเป็น flex-start แทน start */
+    align-items: flex-start;
     gap: 20px;
 }
 
@@ -38,17 +38,17 @@
 .footer-content-right h2,
 .footer-content-center h2 {
     color: white;
-    font-size: 20px; /* ปรับขนาดให้ชัดเจนยิ่งขึ้น */
+    font-size: 20px;
 }
 
 .footer-social-icon img {
     width: 40px;
     margin-right: 15px;
-    transition: transform 0.2s; /* เพิ่มการเปลี่ยนแปลงเมื่อ hover */
+    transition: transform 0.2s;
 }
 
 .footer-social-icon img:hover {
-    transform: scale(1.1); /* เพิ่มขนาดเมื่อ hover */
+    transform: scale(1.1);
 }
 
 .footer hr {
@@ -73,6 +73,6 @@
     .footer-content-left h2,
     .footer-content-right h2,
     .footer-content-center h2 {
-        font-size: 18px; /* ลดขนาดในมือถือ */
+        font-size: 18px;
     }
 }

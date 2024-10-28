@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Add = ({ url }) => {
-  const [image, setImage] = useState(null); // เปลี่ยนจาก false เป็น null เพื่อให้ชัดเจน
+  const [image, setImage] = useState(null);
   const [data, setData] = useState({
     name: "",
     description: "",
@@ -21,10 +21,10 @@ const Add = ({ url }) => {
 
   // ฟังก์ชันส่งข้อมูลเมื่อกดปุ่ม Submit
   const onSubmitHandler = async (event) => {
-    event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+    event.preventDefault();
     try {
       const formData = new FormData(); // สร้าง FormData เพื่อรองรับการอัปโหลดรูปภาพ
-      Object.entries(data).forEach(([key, value]) => formData.append(key, value)); // เติมข้อมูลทั้งหมดลงใน formData
+      Object.entries(data).forEach(([key, value]) => formData.append(key, value));
       formData.append("image", image);
 
       const response = await axios.post(`${url}/api/food/add`, formData);
@@ -49,7 +49,6 @@ const Add = ({ url }) => {
   return (
     <div className="add">
       <form className="flex-col" onSubmit={onSubmitHandler}>
-        {/* อัปโหลดรูปภาพ */}
         <div className="add-image-upload flex-col">
           <p>Upload Image</p>
           <label htmlFor="image">
@@ -67,7 +66,6 @@ const Add = ({ url }) => {
           />
         </div>
 
-        {/* ชื่อสินค้า */}
         <div className="add-product-name flex-col">
           <p>Product Name</p>
           <input
@@ -80,7 +78,6 @@ const Add = ({ url }) => {
           />
         </div>
 
-        {/* รายละเอียดสินค้า */}
         <div className="add-product-description flex-col">
           <p>Product Description</p>
           <textarea
@@ -93,7 +90,6 @@ const Add = ({ url }) => {
           ></textarea>
         </div>
 
-        {/* หมวดหมู่และราคา */}
         <div className="add-category-price">
           <div className="add-category flex-col">
             <p>Product Category</p>
@@ -123,7 +119,6 @@ const Add = ({ url }) => {
           </div>
         </div>
 
-        {/* ปุ่มเพิ่มสินค้า */}
         <button type="submit" className="add-btn">
           ADD
         </button>

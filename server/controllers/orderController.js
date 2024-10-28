@@ -4,7 +4,7 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-// Function to place an order
+// Place order function
 const placeOrder = async (req, res) => {
   const frontend_url = "http://localhost:5173";
 
@@ -18,7 +18,6 @@ const placeOrder = async (req, res) => {
     });
     await newOrder.save();
 
-    // เคลียร์ cartData ของผู้ใช้
     await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
 
     // สร้างรายการ line_items สำหรับ Stripe
@@ -28,7 +27,6 @@ const placeOrder = async (req, res) => {
         product_data: {
           name: item.name,
         },
-        // ใช้ Math.round() เพื่อให้แน่ใจว่าเป็นจำนวนเต็ม
         unit_amount: Math.round(item.price * 100 * 80), // ปรับให้เป็นจำนวนเต็ม
       },
       quantity: item.quantity,
@@ -46,7 +44,7 @@ const placeOrder = async (req, res) => {
       quantity: 1,
     });
 
-    // สร้าง session สำหรับการชำระเงิน
+    // session สำหรับการชำระเงิน
     const session = await stripe.checkout.sessions.create({
       line_items: line_items,
       mode: "payment",
@@ -61,7 +59,7 @@ const placeOrder = async (req, res) => {
   }
 };
 
-// Function to verify the order payment status
+// Verify payment status function
 const verifyOrder = async (req, res) => {
   const { orderId, success } = req.body;
 

@@ -34,7 +34,7 @@
 }
 
 .cart-items-item .cross:hover {
-    color: red; /* เปลี่ยนสีเมื่อเอาเมาส์ไปวาง */
+    color: red;
 }
 
 .cart-bottom {
@@ -44,15 +44,16 @@
     gap: max(12vw, 20px);
 }
 
-.cart-total, .cart-promo-code {
+.cart-total,
+.cart-promo-code {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px; /* เพิ่ม padding เพื่อความสบายตา */
-    border: 1px solid #e2e2e2; /* เพิ่มกรอบ */
-    border-radius: 8px; /* ทำให้มุมโค้ง */
-    background-color: #f9f9f9; /* สีพื้นหลังเบา */
+    padding: 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    background-color: #f9f9f9;
 }
 
 .cart-total-details {
@@ -73,11 +74,11 @@
     padding: 12px 0px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s; /* เพิ่ม transition */
+    transition: background-color 0.3s;
 }
 
 .cart-total button:hover {
-    background-color: darkred; /* เปลี่ยนสีเมื่อเอาเมาส์ไปวาง */
+    background-color: darkred;
 }
 
 .cart-promo-code p {
@@ -107,17 +108,18 @@
     border: none;
     color: white;
     border-radius: 4px;
-    transition: background-color 0.3s; /* เพิ่ม transition */
+    transition: background-color 0.3s;
 }
 
 .cart-promo-code-input button:hover {
-    background-color: gray; /* เปลี่ยนสีเมื่อเอาเมาส์ไปวาง */
+    background-color: gray;
 }
 
 @media (max-width: 750px) {
     .cart-bottom {
         flex-direction: column-reverse;
     }
+
     .cart-promo-code {
         justify-content: start;
     }

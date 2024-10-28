@@ -35,8 +35,9 @@ const StoreContextProvider = (props) => {
       setCartItem((prev) => {
         const updatedCart = { ...prev, [itemId]: (prev[itemId] || 0) + 1 };
         if (token) {
-          axios.post(`${url}/api/cart/add`, { itemId }, { headers: { token } })
-            .catch(handleApiError); // จัดการข้อผิดพลาดที่นี่
+          axios
+            .post(`${url}/api/cart/add`, { itemId }, { headers: { token } })
+            .catch(handleApiError);
         }
         return updatedCart;
       });
@@ -50,8 +51,9 @@ const StoreContextProvider = (props) => {
       setCartItem((prev) => {
         const updatedCart = { ...prev, [itemId]: (prev[itemId] || 0) - 1 };
         if (token) {
-          axios.post(`${url}/api/cart/remove`, { itemId }, { headers: { token } })
-            .catch(handleApiError); // จัดการข้อผิดพลาดที่นี่
+          axios
+            .post(`${url}/api/cart/remove`, { itemId }, { headers: { token } })
+            .catch(handleApiError);
         }
         return updatedCart;
       });
@@ -71,16 +73,22 @@ const StoreContextProvider = (props) => {
   }, [cartItem, food_list]);
 
   // ฟังก์ชันโหลดข้อมูลตะกร้าจากเซิร์ฟเวอร์
-  const loadCartData = useCallback(async (token) => {
-    try {
-      const response = await axios.post(`${url}/api/cart/get`, {}, { headers: { token } });
-      setCartItem(response.data.cartData);
-    } catch (error) {
-      handleApiError(error);
-    }
-  }, [url]);
+  const loadCartData = useCallback(
+    async (token) => {
+      try {
+        const response = await axios.post(
+          `${url}/api/cart/get`,
+          {},
+          { headers: { token } }
+        );
+        setCartItem(response.data.cartData);
+      } catch (error) {
+        handleApiError(error);
+      }
+    },
+    [url]
+  );
 
-  // useEffect เพื่อโหลดข้อมูล
   useEffect(() => {
     const loadData = async () => {
       await fetchFoodList();
